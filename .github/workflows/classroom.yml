@@ -1,5 +1,7 @@
 name: Autograding Tests
-'on': {}
+'on':
+- push
+- repository_dispatch
 permissions:
   checks: write
   actions: read
@@ -19,7 +21,7 @@ jobs:
         setup-command: "./setup.sh"
         command: pytest
         timeout: 10
-        max-score: 1
+        max-score: 5
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
